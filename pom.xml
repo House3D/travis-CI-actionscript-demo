@@ -37,7 +37,7 @@
 					</includeTestFiles >
 				</configuration >
 				<dependencies >
-					<!-- Nice POM bundle available per SDK on Sonatype thanks to Flex-Mojos -->
+					<!-- Nice POM bundle available per Flex SDK on Sonatype thanks to Flex-Mojos -->
 					<dependency >
 						<groupId >com.adobe.flex</groupId >
 						<artifactId >compiler</artifactId >

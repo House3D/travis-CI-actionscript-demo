@@ -11,8 +11,9 @@
 	<name >Travis-CI AS3 Unittest Demo</name >
 
 	<properties >
-		<flex.sdk.version >3.5.0.12683</flex.sdk.version >
-		<flexmojos.version >3.6.1</flexmojos.version >
+		<flex.sdk.version >4.5.1.21328</flex.sdk.version >
+		<flexmojos.version >4.0-RC2</flexmojos.version >
+		<flexunit.version >4.0-rc-1</flexunit.version >
 	</properties >
 
 	<build >
@@ -25,11 +26,11 @@
 				<version >${flexmojos.version}</version >
 				<extensions >true</extensions >
 				<configuration >
-					<testRunner >
-						<launcher >
-							<flashplayerCommand >${flashPlayer.command}</flashplayerCommand >
-						</launcher >
-					</testRunner >
+					<compilerWarnings>
+                        <warn-no-constructor>false</warn-no-constructor>
+                    </compilerWarnings>
+
+					<configurationReport>true</configurationReport>
 					<headlessServer >true</headlessServer >
 					<verboseStacktraces >true</verboseStacktraces >
 					<includeTestFiles >
@@ -37,7 +38,7 @@
 					</includeTestFiles >
 				</configuration >
 				<dependencies >
-					<!-- Nice POM bundle available per Flex SDK on Sonatype thanks to Flex-Mojos -->
+					<!-- Nice POM bundle available per SDK on Sonatype thanks to Flex-Mojos -->
 					<dependency >
 						<groupId >com.adobe.flex</groupId >
 						<artifactId >compiler</artifactId >
@@ -61,7 +62,7 @@
 		<dependency >
 			<groupId >com.adobe.flexunit</groupId >
 			<artifactId >flexunit</artifactId >
-			<version >4.0-rc-1</version >
+			<version >${flexunit.version}</version >
 			<type >swc</type >
 			<scope >test</scope >
 		</dependency >

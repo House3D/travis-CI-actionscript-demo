@@ -1,50 +1,56 @@
 # Travis-CI ActionScript Demo
-<img src="https://cloud.githubusercontent.com/assets/138324/4870922/d9fe6306-618f-11e4-8c9b-1bcfde64a027.png" width=200 height=200 alt="Travis-CI As3 Flexmojos Icon" align="right" />
 
-A collection of simple [ActionScript3](http://en.wikipedia.org/wiki/ActionScript) example projects using [Travis CI](http://travis-ci.org) for build automation.  All of the projects are utilizing the [flex-mojos](http://code.google.com/p/flex-mojos/) pluging for [Maven](http://maven.apache.org/). Examples are designed to help developers setup Continuous Integration for Flash and Flex projects.  Flexmojos can be utilized to build swfs, swcs, and air assets, in addition to running unittest and generating docs and code coverage reports.
+[![Build Status](https://api.travis-ci.org/Larusso/travis-CI-actionscript-demo.svg?branch=flexmojos4.0)](https://travis-ci.org/Larusso/travis-CI-actionscript-demo)
 
-## Installation
+A simple demo that demonstrates a way to unit test [ActionScript](http://en.wikipedia.org/wiki/ActionScript) applications with [Travis CI](http://travis-ci.org)
 
-Start by cloning the repo.
+## About
+The demo utilizes OSX Travis worker.  A specified [Flash Player](http://www.adobe.com/products/flashplayer.html) will be downloaded from the Adobe website at runtime. All build dependencies (flex sdk, flex unit, etc) will be resolved by [Maven](http://maven.apache.org/) and the [flex-mojos](http://code.google.com/p/flex-mojos/) plug-in.
+
+## Example Details
+
+### Flex-Mojos 4.0
+
+  * needed to compile FlexSDK 4.5
+  * used FlexUnit 4.0
+  * needs a Flash Player work around
+  * aided by this Adobe tutorial - [Part 1](http://www.adobe.com/devnet/flex/articles/flex-maven-flexmojos-pt1.html), [Part 2](http://www.adobe.com/devnet/flex/articles/flex-maven-flexmojos-pt2.html)
+
+:blue_book: See _travis.ci_ and _pom.xml_ files for setup details.
+
+## Local Usage
+To run this script locally you will need a Mac, the OSX version should ideally match the [Travis OSX build environment](http://docs.travis-ci.com/user/osx-ci-environment).
+
+Clone the GitHub repo. Pull the Tags, and checkout the example you want.
+
+Get Maven (if you don't have it already).
 
 ```
-git clone git@github.com:Larusso/travis-CI-actionscript-demo.git
+brew install maven
 ```
 
-Each example is stored using a Git tag, list the tags to see examples (or see list below).
+Download a _Debug Flash Player_ via **getFpFromArchive** script from the [list of Adobe Archives](http://helpx.adobe.com/flash-player/kb/archived-flash-player-versions.html).  
+(This 
+player is only used when running Maven and will not alter your computers setup.)
 
 ```
-git tag
+sh getFpFromArchive 'http://download.macromedia.com/pub/flashplayer/installers/archive/fp_11.7.700.225_archive.zip'
 ```
 
-Checkout the project tag you are interested in.
+Run Maven **test**.  
+(the _flashplayer_ environemnt variable is set which is used in the _pom.xml_ file.
 
 ```
-git checkout [tagname]
+mvn test -DflashPlayer.command=Flash\ Player\ Debugger.app/Contents/MacOS/Flash\ Player\ Debugger
 ```
-
-## Example Projects
-
-| Tag Name  | Description | Build Status |
-| ------------- | ------------- | ------------- |
-| [flexmojos3.6.1](https://github.com/Larusso/travis-CI-actionscript-demo/tree/flexmojos3.6.1) | FlexMojos 3.6.1 example, FlexSDK 3.x | [![Build Status](https://travis-ci.org/Larusso/travis-CI-actionscript-demo.svg?branch=flexmojos3.6.1)](https://travis-ci.org/Larusso/travis-CI-actionscript-demo)|
-| [flexmojos4.0](https://github.com/Larusso/travis-CI-actionscript-demo/tree/flexmojos4.0) | FlexMojos 4.0 example, FlexSDK 4.x | [![Build Status](https://travis-ci.org/Larusso/travis-CI-actionscript-demo.svg?branch=flexmojos4.0)](https://travis-ci.org/Larusso/travis-CI-actionscript-demo) |
-| [flexunit4.1](https://github.com/Larusso/travis-CI-actionscript-demo/tree/flexunit4.1) | FlexUnit 4.1 example | [![Build Status](https://travis-ci.org/Larusso/travis-CI-actionscript-demo.svg?branch=flexunit4.1)](https://travis-ci.org/Larusso/travis-CI-actionscript-demo)|
-| [mockito-flex](https://github.com/Larusso/travis-CI-actionscript-demo/tree/mockito-flex) | Mockito-Flex example | [![Build Status](https://travis-ci.org/Larusso/travis-CI-actionscript-demo.svg?branch=mockito-flex)](https://travis-ci.org/Larusso/travis-CI-actionscript-demo) |
-| [coverage](https://github.com/Larusso/travis-CI-actionscript-demo/tree/coverage) | Code Coverage example | [![Build Status](https://travis-ci.org/Larusso/travis-CI-actionscript-demo.svg?branch=coverage)](https://travis-ci.org/Larusso/travis-CI-actionscript-demo) |
-| [asdoc](https://github.com/Larusso/travis-CI-actionscript-demo/tree/asdoc) | AsDoc example | [![Build Status](https://travis-ci.org/Larusso/travis-CI-actionscript-demo.svg?branch=asdoc)](https://travis-ci.org/Larusso/travis-CI-actionscript-demo) |
 
 ## Resources
 
  * [Flex-Mojos (Pre-Apache Flex)](http://code.google.com/p/flex-mojos/)
- * [Flex-Mojos (Post-Apache Flex)](https://flexmojos.atlassian.net/wiki/display/FLEXMOJOS/Home)
  * [Flex-Mojos Introduction](https://github.com/justinjmoses/flexmojos-introduction)
- * [Mockito-Flex](https://bitbucket.org/loomis/mockito-flex/wiki/Home)
- * [AsDoc](https://cwiki.apache.org/confluence/display/FLEX/ASDoc%27s)
- * [Using Flex-Mojos with IntelliJ IDEA](http://wiki.jetbrains.net/intellij/Working_with_Flexmojos_projects_in_IntelliJ_IDEA)
 
 ## Authors
 
  * Manfred Endres
  * Hays Clark
-
+ 

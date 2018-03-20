@@ -1,6 +1,6 @@
 # Travis-CI ActionScript Demo
 
-[![Build Status](https://api.travis-ci.org/Larusso/travis-CI-actionscript-demo.svg?branch=flexmojos4.0)](https://travis-ci.org/Larusso/travis-CI-actionscript-demo)
+[![Build Status](https://api.travis-ci.org/Larusso/travis-CI-actionscript-demo.svg?branch=mockito-flex)](https://travis-ci.org/Larusso/travis-CI-actionscript-demo)
 
 A simple demo that demonstrates a way to unit test [ActionScript](http://en.wikipedia.org/wiki/ActionScript) applications with [Travis CI](http://travis-ci.org)
 
@@ -9,12 +9,16 @@ The demo utilizes OSX Travis worker.  A specified [Flash Player](http://www.adob
 
 ## Example Details
 
-### Flex-Mojos 4.0
+### Flex-Mojos 4.0 with FlexUnit 4.1 and Mockito-Flex 1.4.M5
 
   * needed to compile FlexSDK 4.5
-  * used FlexUnit 4.0
-  * needs a Flash Player work around
-  * aided by this Adobe tutorial - [Part 1](http://www.adobe.com/devnet/flex/articles/flex-maven-flexmojos-pt1.html), [Part 2](http://www.adobe.com/devnet/flex/articles/flex-maven-flexmojos-pt2.html)
+  * uses FlexUnit 4.1
+	* requires adding local Maven module
+  * uses [Mockito-Flex](https://bitbucket.org/loomis/mockito-flex/wiki/Home) 1.4M5
+	* requires adding local Mockito module
+	* has AsUnit dependency
+	* :warning: will error if attempting to Mock a class from the __Default Package__.
+
 
 :blue_book: See _travis.ci_ and _pom.xml_ files for setup details.
 

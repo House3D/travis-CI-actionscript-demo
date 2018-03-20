@@ -11,11 +11,10 @@
 	<name >Travis-CI AS3 Unittest Demo</name >
 
 	<properties >
-		<flash.player.version >10.0</flash.player.version >
-		<air.version >26.0</air.version >
 		<flex.sdk.version >4.5.1.21328</flex.sdk.version >
-		<flexmojos.version >6.0.0</flexmojos.version >
-		<flexunit.version >4.7.0</flexunit.version >
+		<flexmojos.version >4.0-RC2</flexmojos.version >
+		<flexunit.version >4.1.0-8</flexunit.version >
+		<mockito-flex.version>1.4M5</mockito-flex.version>
 	</properties >
 
 	<build >
@@ -23,11 +22,12 @@
 		<testSourceDirectory >test</testSourceDirectory >
 		<plugins >
 			<plugin >
-				<groupId>net.flexmojos.oss</groupId>
+				<groupId >org.sonatype.flexmojos</groupId >
 				<artifactId >flexmojos-maven-plugin</artifactId >
 				<version >${flexmojos.version}</version >
 				<extensions >true</extensions >
 				<configuration >
+					<sourceFile>LibraryMain.as</sourceFile>
 					<compilerWarnings>
                         <warn-no-constructor>false</warn-no-constructor>
                     </compilerWarnings>
@@ -41,12 +41,12 @@
 				</configuration >
 				<dependencies >
 					<!-- Nice POM bundle available per SDK on Sonatype thanks to Flex-Mojos -->
-					<dependency>
-						<groupId>com.adobe.air</groupId>
-						<artifactId>compiler</artifactId>
-						<version>${air.version}</version>
-						<type>pom</type>
-					</dependency>
+					<dependency >
+						<groupId >com.adobe.flex</groupId >
+						<artifactId >compiler</artifactId >
+						<version >${flex.sdk.version}</version >
+						<type >pom</type >
+					</dependency >
 				</dependencies >
 			</plugin >
 		</plugins >
@@ -55,10 +55,10 @@
 	<dependencies >
 		<!-- Nice POM bundle available per SDK on Sonatype thanks to Flex-Mojos -->
 		<dependency >
-			<groupId>com.adobe.flash.framework</groupId>
-			<artifactId>playerglobal</artifactId>
-			<version >${flash.player.version}</version >
-			<type>swc</type>
+			<groupId >com.adobe.flex.framework</groupId >
+			<artifactId >flex-framework</artifactId >
+			<version >${flex.sdk.version}</version >
+			<type >pom</type >
 		</dependency >
 		<!-- Based on testing library dependency specified, FlexMojos will know how to test your application -->
 		<dependency >
@@ -68,6 +68,22 @@
 			<type >swc</type >
 			<scope >test</scope >
 		</dependency >
+		<!-- Adding Mockito-Flex -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-flex</artifactId>
+			<version>${mockito-flex.version}</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+		<!-- Adding AsUnit, a dependancy of Mockito-Flex -->
+		<dependency>
+			<groupId>com.asunit</groupId>
+			<artifactId>asunit</artifactId>
+			<version>20071011</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
 	</dependencies >
 
 	<!-- Ideally this would go into your ~/.m2/settings.xml file -->

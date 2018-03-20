@@ -2,7 +2,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd" >
 
-	<modelVersion >4.0.0</modelVersion >
+	<modelVersion >6.0.0</modelVersion >
 
 	<groupId >de.tslarusso</groupId >
 	<artifactId >travis-CI-actionscript-demo</artifactId >
@@ -11,9 +11,11 @@
 	<name >Travis-CI AS3 Unittest Demo</name >
 
 	<properties >
+		<flash.player.version >10.0</flash.player.version >
+		<air.version >26.0</air.version >
 		<flex.sdk.version >4.5.1.21328</flex.sdk.version >
 		<flexmojos.version >6.0.0</flexmojos.version >
-		<flexunit.version >4.0-rc-1</flexunit.version >
+		<flexunit.version >4.7.0</flexunit.version >
 	</properties >
 
 	<build >
@@ -21,7 +23,7 @@
 		<testSourceDirectory >test</testSourceDirectory >
 		<plugins >
 			<plugin >
-				<groupId >org.sonatype.flexmojos</groupId >
+				<groupId>net.flexmojos.oss</groupId>
 				<artifactId >flexmojos-maven-plugin</artifactId >
 				<version >${flexmojos.version}</version >
 				<extensions >true</extensions >
@@ -39,12 +41,12 @@
 				</configuration >
 				<dependencies >
 					<!-- Nice POM bundle available per SDK on Sonatype thanks to Flex-Mojos -->
-					<dependency >
-						<groupId >com.adobe.flex</groupId >
-						<artifactId >compiler</artifactId >
-						<version >${flex.sdk.version}</version >
-						<type >pom</type >
-					</dependency >
+					<dependency>
+						<groupId>com.adobe.air</groupId>
+						<artifactId>compiler</artifactId>
+						<version>${air.version}</version>
+						<type>pom</type>
+					</dependency>
 				</dependencies >
 			</plugin >
 		</plugins >
@@ -53,10 +55,10 @@
 	<dependencies >
 		<!-- Nice POM bundle available per SDK on Sonatype thanks to Flex-Mojos -->
 		<dependency >
-			<groupId >com.adobe.flex.framework</groupId >
-			<artifactId >flex-framework</artifactId >
-			<version >${flex.sdk.version}</version >
-			<type >pom</type >
+			<groupId>com.adobe.flash.framework</groupId>
+			<artifactId>playerglobal</artifactId>
+			<version >${flash.player.version}</version >
+			<type>swc</type>
 		</dependency >
 		<!-- Based on testing library dependency specified, FlexMojos will know how to test your application -->
 		<dependency >

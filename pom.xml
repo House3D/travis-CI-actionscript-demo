@@ -12,7 +12,7 @@
 
 	<properties >
 		<flex.sdk.version >4.5.1.21328</flex.sdk.version >
-		<flexmojos.version >7.1.0</flexmojos.version >
+		<flexmojos.version >7.0.1</flexmojos.version >
 		<flexunit.version >4.1.0-8</flexunit.version >
 		<mockito-flex.version>1.4M5</mockito-flex.version>
 	</properties >

@@ -62,6 +62,8 @@ curl -L ${FP_ZIP_ARCHIVE_URL} >> ${FP_ARCHIVE_ZIP}
 echo "[INFO] Unzipping to: ${FP_ARCHIVE_PATH}"
 unzip ${FP_ARCHIVE_ZIP} -d ${FP_ARCHIVE_PATH}
 
+chmod +x -R ${FP_ARCHIVE_PATH}
+
 # locate the mac_sa_debug.app.zip file and ignore any .* files
 # these seem to be inconsistent, "*mac_sa_debug.app.zip" and
 # "*mac_sa_debug.zip" have been notedr,
